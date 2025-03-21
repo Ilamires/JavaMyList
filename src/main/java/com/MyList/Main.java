@@ -7,6 +7,7 @@ public class Main {
         test.PushBack(43);
         test.PushBack(48);
         test.PushBack(43);
+        test.PushBack(4673);
 
         System.out.println(test.GetByIndex(1));
         System.out.println(test.GetByIndex(0));
@@ -18,7 +19,7 @@ public class Main {
         System.out.println(test.RemoveByIndex(1));
         System.out.println(test.RemoveByIndex(8));
 
-        System.out.println(test.GetByIndex(1));
+        System.out.println(test.GetByIndex(2));
         System.out.println(test.GetByIndex(0));
         test.Clear();
         //System.out.println(test.GetByIndex(0));
