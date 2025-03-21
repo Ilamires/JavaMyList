@@ -57,4 +57,40 @@ public class ListTest {
                 myList.GetIndexByValue(4884) == 1);
     }
 
+    @Test
+    public void MyListSizeTest() {
+        boolean result = true;
+        MyList<Integer> myList = new MyList<Integer>();
+        myList.PushBack(43);
+        myList.PushBack(43);
+        myList.PushBack(4673);
+        myList.PushBack(4884);
+        result = myList.Size() == 4;
+
+        myList.RemoveByIndex(2);
+        myList.RemoveByValue(43);
+        myList.RemoveByIndex(1);
+        result = result && myList.Size() == 1;
+
+        myList.RemoveByValue(43);
+        result = result && myList.Size() == 0;
+
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void MyListClearTest() {
+        MyList<Integer> myList = new MyList<Integer>();
+        myList.PushBack(43);
+        myList.PushBack(43);
+        myList.PushBack(4673);
+        myList.PushBack(4884);
+
+        myList.RemoveByIndex(2);
+        myList.PushBack(483);
+        myList.PushBack(46738);
+        myList.Clear();
+
+        Assert.assertEquals(0, myList.Size());
+    }
 }
