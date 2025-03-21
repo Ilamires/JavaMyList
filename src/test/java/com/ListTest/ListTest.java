@@ -6,8 +6,9 @@ import org.junit.Assert;
 
 public class ListTest {
 
+
     @Test
-    public void MyListPushBackTest() {
+    public void MyListPushBackAndGetByIndexTest() {
         MyList<Integer> myList = new MyList<Integer>();
         myList.PushBack(1);
         myList.PushBack(43);
