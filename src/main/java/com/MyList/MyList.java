@@ -48,4 +48,32 @@ public class MyList<T> {
             current = current.next;
         return current == null ? -1 : result;
     }
+
+    public boolean RemoveByIndex(int index) {
+        boolean isRemoved = false;
+        Node<T> current = head;
+        if (current != null) {
+            for (int i = 0; current.next != null && i < index - 1; ++i)
+                current = current.next;
+            if (current.next != null) {
+                current.next = current.next.next;
+                isRemoved = true;
+            }
+        }
+        return isRemoved;
+    }
+
+    public boolean RemoveByValue(T value) {
+        boolean isRemoved = false;
+        Node<T> current = head;
+        if (current != null) {
+            for (int i = 0; current.next != null && current.next.value != value; ++i)
+                current = current.next;
+            if (current.next != null) {
+                current.next = current.next.next;
+                isRemoved = true;
+            }
+        }
+        return isRemoved;
+    }
 }
