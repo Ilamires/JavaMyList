@@ -16,4 +16,19 @@ public class MyList<T> {
     }
 
     Node<T> head;
+
+    public MyList() {
+        head = null;
+    }
+
+    public void PushBack(T value) {
+        if (head == null)
+            head = new Node<T>(value);
+        else {
+            Node<T> current = head;
+            while (current.next != null)
+                current = current.next;
+            current.next = new Node<T>(value);
+        }
+    }
 }
