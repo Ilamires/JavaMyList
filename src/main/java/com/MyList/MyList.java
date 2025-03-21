@@ -59,8 +59,13 @@ public class MyList<T> {
 
     public boolean RemoveByIndex(int index) {
         boolean isRemoved = false;
-        Node<T> current = head;
-        if (current != null && index < size) {
+        if (index == 0 && head != null) {
+            head = head.next;
+            isRemoved = true;
+            --size;
+        }
+        else if (head != null && index < size) {
+            Node<T> current = head;
             for (int i = 0; current.next != null && i < index - 1; ++i)
                 current = current.next;
             if (current.next != null) {
@@ -74,8 +79,13 @@ public class MyList<T> {
 
     public boolean RemoveByValue(T value) {
         boolean isRemoved = false;
-        Node<T> current = head;
-        if (current != null) {
+        if (head != null && head.value == value) {
+            head = head.next;
+            isRemoved = true;
+            --size;
+        }
+        else if (head != null) {
+            Node<T> current = head;
             for (int i = 0; current.next != null && current.next.value != value; ++i)
                 current = current.next;
             if (current.next != null) {
@@ -85,5 +95,10 @@ public class MyList<T> {
             }
         }
         return isRemoved;
+    }
+
+    public void Clear() {
+        while (head != null)
+            RemoveByIndex(0);
     }
 }

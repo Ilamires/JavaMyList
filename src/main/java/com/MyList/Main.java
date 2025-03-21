@@ -20,5 +20,8 @@ public class Main {
 
         System.out.println(test.GetByIndex(1));
         System.out.println(test.GetByIndex(0));
+        test.Clear();
+        //System.out.println(test.GetByIndex(0));
+        //System.out.println(test.GetByIndex(1));
     }
 }
