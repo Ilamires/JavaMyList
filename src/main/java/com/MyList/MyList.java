@@ -98,7 +98,7 @@ public class MyList<T> {
     }
 
     public void Clear() {
-        while (head != null)
+        while (size > 0)
             RemoveByIndex(0);
     }
 }

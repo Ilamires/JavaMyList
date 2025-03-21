@@ -43,4 +43,18 @@ public class ListTest {
                 myList.GetIndexByValue(4884) == 1);
     }
 
+    @Test
+    public void MyListRemoveByIndexTest() {
+        MyList<Integer> myList = new MyList<Integer>();
+        myList.PushBack(43);
+        myList.PushBack(43);
+        myList.PushBack(4673);
+        myList.PushBack(4884);
+        myList.RemoveByIndex(2);
+        myList.RemoveByIndex(1);
+        Assert.assertTrue(myList.GetIndexByValue(43) == 0 &&
+                myList.GetIndexByValue(4673) == -1 &&
+                myList.GetIndexByValue(4884) == 1);
+    }
+
 }
