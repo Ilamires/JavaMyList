@@ -31,4 +31,21 @@ public class MyList<T> {
             current.next = new Node<T>(value);
         }
     }
+
+    public T GetByIndex(int index) {
+        Node<T> current = head;
+        for (int i = 0; i < index && current != null; ++i)
+            current = current.next;
+        if (current == null)
+            throw new IndexOutOfBoundsException("Index out of bounds");
+        return current.value;
+    }
+
+    public int GetIndexByValue(T value) {
+        Node<T> current = head;
+        int result;
+        for (result = 0; current != null && current.value != value; ++result)
+            current = current.next;
+        return current == null ? -1 : result;
+    }
 }
