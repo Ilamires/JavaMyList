@@ -16,9 +16,15 @@ public class MyList<T> {
     }
 
     Node<T> head;
+    int size;
 
     public MyList() {
         head = null;
+        size = 0;
+    }
+
+    public int Size() {
+        return size;
     }
 
     public void PushBack(T value) {
@@ -30,13 +36,15 @@ public class MyList<T> {
                 current = current.next;
             current.next = new Node<T>(value);
         }
+        ++size;
     }
 
     public T GetByIndex(int index) {
         Node<T> current = head;
-        for (int i = 0; i < index && current != null; ++i)
-            current = current.next;
-        if (current == null)
+        if (index < size)
+            for (int i = 0; i < index && current != null; ++i)
+                current = current.next;
+        if (current == null || index >= size)
             throw new IndexOutOfBoundsException("Index out of bounds");
         return current.value;
     }
@@ -52,12 +60,13 @@ public class MyList<T> {
     public boolean RemoveByIndex(int index) {
         boolean isRemoved = false;
         Node<T> current = head;
-        if (current != null) {
+        if (current != null && index < size) {
             for (int i = 0; current.next != null && i < index - 1; ++i)
                 current = current.next;
             if (current.next != null) {
                 current.next = current.next.next;
                 isRemoved = true;
+                --size;
             }
         }
         return isRemoved;
@@ -72,6 +81,7 @@ public class MyList<T> {
             if (current.next != null) {
                 current.next = current.next.next;
                 isRemoved = true;
+                --size;
             }
         }
         return isRemoved;
