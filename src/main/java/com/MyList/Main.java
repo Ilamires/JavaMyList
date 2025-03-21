@@ -16,6 +16,7 @@ public class Main {
         System.out.println(test.GetIndexByValue(42));
         System.out.println(test.RemoveByValue(43));
         System.out.println(test.RemoveByIndex(1));
+        System.out.println(test.RemoveByIndex(8));
 
         System.out.println(test.GetByIndex(1));
         System.out.println(test.GetByIndex(0));
