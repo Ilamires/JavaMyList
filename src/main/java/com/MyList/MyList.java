@@ -52,7 +52,7 @@ public class MyList<T> {
     public int GetIndexByValue(T value) {
         Node<T> current = head;
         int result;
-        for (result = 0; current != null && current.value != value; ++result)
+        for (result = 0; current != null && !current.value.equals(value); ++result)
             current = current.next;
         return current == null ? -1 : result;
     }
@@ -86,7 +86,7 @@ public class MyList<T> {
         }
         else if (head != null) {
             Node<T> current = head;
-            for (int i = 0; current.next != null && current.next.value != value; ++i)
+            for (int i = 0; current.next != null && !current.next.value.equals(value); ++i)
                 current = current.next;
             if (current.next != null) {
                 current.next = current.next.next;
